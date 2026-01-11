@@ -18,7 +18,7 @@ export function Header() {
             <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm">
               <a href="mailto:jdgm464a@gmail.com" className="flex items-center gap-2 hover:text-slate-300 transition-colors">
                 <Mail className="w-4 h-4" />
-                <span>jdgm464a@gmail.com</span>
+                <span>jdgm464@gmail.com</span>
               </a>
               <a href="tel:04129778551" className="flex items-center gap-2 hover:text-slate-300 transition-colors">
                 <Phone className="w-4 h-4" />

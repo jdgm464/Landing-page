@@ -49,7 +49,7 @@ export function Contact() {
                   <div>
                     <p className="text-sm text-slate-500">Email</p>
                     <a href="mailto:jdgm464a@gmail.com" className="text-slate-900 hover:underline">
-                      jdgm464a@gmail.com
+                      jdgm464@gmail.com
                     </a>
                   </div>
                 </div>

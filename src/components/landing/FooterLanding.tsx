@@ -80,7 +80,7 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <a href="mailto:jdgm464a@gmail.com" className="hover:text-white transition-colors">
-                  jdgm464a@gmail.com
+                  jdgm464@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
