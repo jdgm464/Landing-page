@@ -3,9 +3,10 @@ import { Menu, X, FileText } from 'lucide-react';
 
 interface NavigationProps {
   onNavigateToCv: () => void;
+  onOpenContact: () => void;
 }
 
-export function Navigation({ onNavigateToCv }: NavigationProps) {
+export function Navigation({ onNavigateToCv, onOpenContact }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,9 +20,9 @@ export function Navigation({ onNavigateToCv }: NavigationProps) {
   }, []);
 
   const navLinks = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Sobre Mí', href: '#about' },
-    { label: 'Contacto', href: '#contact' }
+    { label: 'Inicio', href: '#hero', onClick: undefined },
+    { label: 'Sobre Mí', href: '#about', onClick: undefined },
+    { label: 'Contacto', href: '#', onClick: (e: React.MouseEvent) => { e.preventDefault(); onOpenContact(); } }
   ];
 
   return (
@@ -49,9 +50,10 @@ export function Navigation({ onNavigateToCv }: NavigationProps) {
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
-                className="text-slate-300 hover:text-white transition-colors duration-200"
+                onClick={link.onClick}
+                className="text-slate-300 hover:text-white transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
               </a>
@@ -91,10 +93,13 @@ export function Navigation({ onNavigateToCv }: NavigationProps) {
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.label}
               href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-2xl text-slate-300 hover:text-white transition-colors duration-200"
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                if (link.onClick) link.onClick(e);
+              }}
+              className="text-2xl text-slate-300 hover:text-white transition-colors duration-200 cursor-pointer"
             >
               {link.label}
             </a>
