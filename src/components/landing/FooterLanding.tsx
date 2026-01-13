@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 
 interface FooterLandingProps {
   onNavigateToCv: () => void;
@@ -8,7 +8,6 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/jdgm464', label: 'GitHub', ariaLabel: 'Visitar GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/jos%C3%A9-guzman-819a1b33a/', label: 'LinkedIn', ariaLabel: 'Visitar LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter', ariaLabel: 'Visitar Twitter' },
     { icon: Mail, href: 'mailto:jdgm464@gmail.com', label: 'Email', ariaLabel: 'Enviar Email' }
   ];
 

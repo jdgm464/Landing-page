@@ -7,25 +7,25 @@ const skillCategories = [
     id: 1,
     title: 'Frontend',
     icon: Code2,
-    skills: ['Skill 1', 'Skill 2', 'Skill 3']
+    skills: ['CSS', 'Bootstrap', 'JavaScript', 'React']
   },
   {
     id: 2,
     title: 'Backend',
     icon: Layers,
-    skills: ['Skill 1', 'Skill 2', 'Skill 3']
+    skills: ['HTML', 'Node.js', 'Java', 'PHP']
   },
   {
     id: 3,
     title: 'Bases de Datos',
     icon: Database,
-    skills: ['Skill 1', 'Skill 2', 'Skill 3']
+    skills: ['MySQL', 'SQL', 'PostgreSQL']
   },
   {
     id: 4,
     title: 'Herramientas & DevOps',
     icon: Wrench,
-    skills: ['Skill 1', 'Skill 2', 'Skill 3']
+    skills: ['Git', 'GitHub', 'VS Code']
   }
 ];
 

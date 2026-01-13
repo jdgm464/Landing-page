@@ -28,7 +28,7 @@ export function Contact() {
     
     // Limpiar formulario
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
     }, 500);
   };
 
