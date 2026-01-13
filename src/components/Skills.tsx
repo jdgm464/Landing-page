@@ -7,7 +7,7 @@ const skillCategories = [
     id: 1,
     title: 'Frontend',
     icon: Code2,
-    skills: ['CSS', 'Bootstrap', 'JavaScript', 'React']
+    skills: ['CSS', 'Bootstrap', 'JavaScript']
   },
   {
     id: 2,
