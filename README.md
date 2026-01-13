@@ -142,7 +142,7 @@ npm run build
 ## 📞 Contacto
 
 José Daniel Guzmán Mata
-- Email: jdgm464a@gmail.com
+- Email: jdgm464@gmail.com
 - Ubicación: Puerto Ordaz, Venezuela
 
 ---

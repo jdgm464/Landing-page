@@ -6,11 +6,11 @@ import { Button } from './ui/button';
 const projects = [
   {
     id: 1,
-    title: 'Nombre del Proyecto',
-    description: 'Descripción breve del proyecto y qué problema resuelve.',
-    technologies: ['Tech 1', 'Tech 2'],
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop',
-    github: '#',
+    title: 'Medisoft',
+    description: 'Aplicación de escritorio que permite realizar órdenes, registrar pacientes, evaluar resultados de los exámenes.',
+    technologies: ['Java', 'Swing', 'MySQL', 'NetBeans'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
+    github: 'https://github.com/jdgm464/LaboratorioAplicacion-main-main',
     demo: '#'
   }
 ];
@@ -49,18 +49,20 @@ export function Projects() {
                   </div>
                   
                   <div className="flex gap-2 pt-2">
-                    <Button size="sm" variant="outline" className="flex-1" asChild>
+                    <Button size="sm" variant="outline" className={project.demo === '#' ? 'w-full' : 'flex-1'} asChild>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-1" />
                         Código
                       </a>
                     </Button>
-                    <Button size="sm" className="flex-1" asChild>
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-1" />
-                        Demo
-                      </a>
-                    </Button>
+                    {project.demo !== '#' && (
+                      <Button size="sm" className="flex-1" asChild>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

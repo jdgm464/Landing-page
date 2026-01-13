@@ -6,10 +6,10 @@ interface FooterLandingProps {
 
 export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub', ariaLabel: 'Visitar GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', ariaLabel: 'Visitar LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter', ariaLabel: 'Visitar Twitter' },
-    { icon: Mail, href: '#contact', label: 'Email', ariaLabel: 'Enviar Email' }
+    { icon: Github, href: 'https://github.com/jdgm464', label: 'GitHub', ariaLabel: 'Visitar GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/jos%C3%A9-guzman-819a1b33a/', label: 'LinkedIn', ariaLabel: 'Visitar LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter', ariaLabel: 'Visitar Twitter' },
+    { icon: Mail, href: 'mailto:jdgm464@gmail.com', label: 'Email', ariaLabel: 'Enviar Email' }
   ];
 
   const quickLinks = [
@@ -39,6 +39,8 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
                   key={social.label}
                   href={social.href}
                   aria-label={social.ariaLabel}
+                  target={social.label !== 'Email' ? '_blank' : undefined}
+                  rel={social.label !== 'Email' ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
                 >
                   <social.icon className="w-5 h-5" />
@@ -79,7 +81,7 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
             <ul className="space-y-3 text-slate-400">
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:jdgm464a@gmail.com" className="hover:text-white transition-colors">
+                <a href="mailto:jdgm464@gmail.com" className="hover:text-white transition-colors">
                   jdgm464@gmail.com
                 </a>
               </li>
@@ -90,7 +92,7 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
             </ul>
             <div className="mt-6">
               <a
-                href="#contact"
+                href="mailto:jdgm464@gmail.com?subject=Contacto desde Portfolio"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-300 text-sm"
               >
                 <Mail className="w-4 h-4" />
@@ -109,10 +111,10 @@ export function FooterLanding({ onNavigateToCv }: FooterLandingProps) {
               y código
             </p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="#hero" className="hover:text-white transition-colors">
                 Privacidad
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="#hero" className="hover:text-white transition-colors">
                 Términos
               </a>
             </div>

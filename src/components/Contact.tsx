@@ -14,8 +14,22 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('¡Gracias por tu mensaje! Te contactaré pronto.');
-    setFormData({ name: '', email: '', message: '' });
+    
+    // Construir el mailto con los datos del formulario
+    const subject = encodeURIComponent(`Mensaje de ${formData.name}`);
+    const body = encodeURIComponent(
+      `Nombre: ${formData.name}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Mensaje:\n${formData.message}`
+    );
+    
+    // Abrir cliente de correo
+    window.location.href = `mailto:jdgm464@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Limpiar formulario
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+    }, 500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -48,7 +62,7 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-slate-600 mt-1" />
                   <div>
                     <p className="text-sm text-slate-500">Email</p>
-                    <a href="mailto:jdgm464a@gmail.com" className="text-slate-900 hover:underline">
+                    <a href="mailto:jdgm464@gmail.com" className="text-slate-900 hover:underline">
                       jdgm464@gmail.com
                     </a>
                   </div>

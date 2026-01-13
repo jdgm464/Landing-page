@@ -284,7 +284,7 @@ git log --oneline
 ## 📞 Contacto
 
 José Daniel Guzmán Mata
-- Email: jdgm464a@gmail.com
+- Email: jdgm464@gmail.com
 - GitHub: [Tu username]
 - Portfolio: [Tu URL de Vercel]
 

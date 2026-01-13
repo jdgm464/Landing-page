@@ -16,7 +16,7 @@ export function Header() {
             <p className="text-xl text-slate-300 mb-4">Bachiller en Ciencias</p>
             
             <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm">
-              <a href="mailto:jdgm464a@gmail.com" className="flex items-center gap-2 hover:text-slate-300 transition-colors">
+              <a href="mailto:jdgm464@gmail.com" className="flex items-center gap-2 hover:text-slate-300 transition-colors">
                 <Mail className="w-4 h-4" />
                 <span>jdgm464@gmail.com</span>
               </a>
