@@ -1,0 +1,2 @@
+id_experiencia,id_persona,titulo_puesto,nombre_empresa,ubicacion,fecha_inicio,fecha_fin,actualmente_trabaja,descripcion,orden
+1,1,Título del Puesto,Nombre de la Empresa,Ubicación,2023-01-01,,TRUE,Describe tus responsabilidades y logros en este puesto.,1

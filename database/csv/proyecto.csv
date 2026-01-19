@@ -1,0 +1,2 @@
+id_proyecto,id_persona,nombre_proyecto,descripcion,imagen_url,repositorio_url,demo_url,orden
+1,1,Medisoft,"Aplicación de escritorio que permite realizar órdenes, registrar pacientes, evaluar resultados de los exámenes.",,https://github.com/jdgm464/LaboratorioAplicacion-main-main,,1

@@ -1,0 +1,251 @@
+// ================================================
+// DBML: Curriculum Vitae Database Schema
+// Database: PostgreSQL
+// Autor: José Daniel Guzmán Mata
+// Fecha: Enero 2026
+// ================================================
+
+Project curriculum_cv {
+  database_type: 'PostgreSQL'
+  Note: 'Sistema de Gestión de Curriculum Vitae - Base de datos para gestionar información profesional completa'
+}
+
+// ================================================
+// Tabla: PERSONA
+// ================================================
+Table persona {
+  id_persona serial [pk, increment, note: 'ID único de la persona']
+  nombre varchar(100) [not null, note: 'Nombre de la persona']
+  apellido varchar(100) [not null, note: 'Apellido de la persona']
+  titulo_profesional varchar(200) [note: 'Título profesional o cargo actual']
+  resumen text [note: 'Resumen profesional o biografía']
+  foto_url varchar(255) [note: 'URL de la foto de perfil']
+  fecha_nacimiento date [note: 'Fecha de nacimiento']
+  nacionalidad varchar(50) [note: 'Nacionalidad']
+  ubicacion varchar(200) [note: 'Ubicación actual']
+  email varchar(100) [not null, unique, note: 'Email de contacto']
+  telefono varchar(50) [note: 'Teléfono de contacto']
+  linkedin varchar(255) [note: 'URL del perfil de LinkedIn']
+  github varchar(255) [note: 'URL del perfil de GitHub']
+  fecha_creacion timestamp [default: `CURRENT_TIMESTAMP`, note: 'Fecha de creación del registro']
+  fecha_actualizacion timestamp [default: `CURRENT_TIMESTAMP`, note: 'Fecha de última actualización']
+  
+  indexes {
+    email [name: 'idx_persona_email']
+    (nombre, apellido) [name: 'idx_persona_nombre_apellido']
+  }
+  
+  Note: 'Información personal y de contacto del propietario del CV'
+}
+
+// ================================================
+// Tabla: EXPERIENCIA_LABORAL
+// ================================================
+Table experiencia_laboral {
+  id_experiencia serial [pk, increment, note: 'ID único de la experiencia']
+  id_persona int [not null, ref: > persona.id_persona, note: 'Referencia a la persona']
+  titulo_puesto varchar(200) [not null, note: 'Título del puesto de trabajo']
+  nombre_empresa varchar(200) [not null, note: 'Nombre de la empresa']
+  ubicacion varchar(200) [note: 'Ubicación de la empresa']
+  fecha_inicio date [not null, note: 'Fecha de inicio en el puesto']
+  fecha_fin date [note: 'Fecha de finalización (NULL si trabaja actualmente)']
+  actualmente_trabaja boolean [default: false, note: 'Indica si trabaja actualmente aquí']
+  descripcion text [note: 'Descripción de responsabilidades y logros']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  indexes {
+    id_persona [name: 'idx_experiencia_persona']
+    fecha_inicio [name: 'idx_experiencia_fecha_inicio']
+  }
+  
+  Note: 'Historial de experiencia laboral profesional'
+}
+
+// ================================================
+// Tabla: EDUCACION
+// ================================================
+Table educacion {
+  id_educacion serial [pk, increment, note: 'ID único del registro de educación']
+  id_persona int [not null, ref: > persona.id_persona, note: 'Referencia a la persona']
+  titulo varchar(200) [not null, note: 'Título o grado obtenido']
+  institucion varchar(200) [not null, note: 'Nombre de la institución educativa']
+  ubicacion varchar(200) [note: 'Ubicación de la institución']
+  fecha_inicio date [not null, note: 'Fecha de inicio de los estudios']
+  fecha_fin date [note: 'Fecha de finalización (NULL si estudia actualmente)']
+  actualmente_estudiando boolean [default: false, note: 'Indica si estudia actualmente']
+  descripcion text [note: 'Descripción adicional o logros académicos']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  indexes {
+    id_persona [name: 'idx_educacion_persona']
+    fecha_inicio [name: 'idx_educacion_fecha_inicio']
+  }
+  
+  Note: 'Formación académica y educación formal'
+}
+
+// ================================================
+// Tabla: CURSO
+// ================================================
+Table curso {
+  id_curso serial [pk, increment, note: 'ID único del curso']
+  id_persona int [not null, ref: > persona.id_persona, note: 'Referencia a la persona']
+  nombre_curso varchar(200) [not null, note: 'Nombre del curso o certificación']
+  institucion varchar(200) [not null, note: 'Institución que emite el curso']
+  plataforma varchar(100) [note: 'Plataforma (Online, Presencial, etc.)']
+  fecha_obtencion date [note: 'Fecha de obtención del curso']
+  credencial_url varchar(255) [note: 'URL de la credencial o certificado']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  indexes {
+    id_persona [name: 'idx_curso_persona']
+    fecha_obtencion [name: 'idx_curso_fecha']
+  }
+  
+  Note: 'Cursos, certificaciones y formación complementaria'
+}
+
+// ================================================
+// Tabla: CATEGORIA_HABILIDAD
+// ================================================
+Table categoria_habilidad {
+  id_categoria serial [pk, increment, note: 'ID único de la categoría']
+  nombre_categoria varchar(100) [not null, unique, note: 'Nombre de la categoría (Frontend, Backend, etc.)']
+  icono varchar(50) [note: 'Icono o emoji representativo']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  Note: 'Categorías para agrupar habilidades técnicas (Frontend, Backend, DevOps, etc.)'
+}
+
+// ================================================
+// Tabla: HABILIDAD
+// ================================================
+Table habilidad {
+  id_habilidad serial [pk, increment, note: 'ID único de la habilidad']
+  id_persona int [not null, ref: > persona.id_persona, note: 'Referencia a la persona']
+  id_categoria int [not null, ref: > categoria_habilidad.id_categoria, note: 'Categoría de la habilidad']
+  nombre_habilidad varchar(100) [not null, note: 'Nombre de la habilidad técnica']
+  nivel varchar(20) [default: 'intermedio', note: 'Nivel: basico, intermedio, avanzado, experto']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  indexes {
+    id_persona [name: 'idx_habilidad_persona']
+    id_categoria [name: 'idx_habilidad_categoria']
+    (id_persona, nombre_habilidad) [unique, name: 'uk_persona_habilidad']
+  }
+  
+  Note: 'Habilidades técnicas y competencias profesionales'
+}
+
+// ================================================
+// Tabla: PROYECTO
+// ================================================
+Table proyecto {
+  id_proyecto serial [pk, increment, note: 'ID único del proyecto']
+  id_persona int [not null, ref: > persona.id_persona, note: 'Referencia a la persona']
+  nombre_proyecto varchar(200) [not null, note: 'Nombre del proyecto']
+  descripcion text [note: 'Descripción del proyecto']
+  imagen_url varchar(255) [note: 'URL de la imagen del proyecto']
+  repositorio_url varchar(255) [note: 'URL del repositorio (GitHub, GitLab, etc.)']
+  demo_url varchar(255) [note: 'URL de la demo o sitio en vivo']
+  orden int [default: 0, note: 'Orden de visualización']
+  
+  indexes {
+    id_persona [name: 'idx_proyecto_persona']
+  }
+  
+  Note: 'Proyectos profesionales y personales del portafolio'
+}
+
+// ================================================
+// Tabla: PROYECTO_TECNOLOGIA
+// ================================================
+Table proyecto_tecnologia {
+  id_proyecto_tecnologia serial [pk, increment, note: 'ID único del registro']
+  id_proyecto int [not null, ref: > proyecto.id_proyecto, note: 'Referencia al proyecto']
+  tecnologia varchar(100) [not null, note: 'Tecnología utilizada (React, Node.js, etc.)']
+  
+  indexes {
+    id_proyecto [name: 'idx_proyecto_tecnologia_proyecto']
+    (id_proyecto, tecnologia) [unique, name: 'uk_proyecto_tecnologia']
+  }
+  
+  Note: 'Tecnologías y herramientas utilizadas en cada proyecto'
+}
+
+// ================================================
+// Relaciones (Referencias)
+// ================================================
+// Las relaciones ya están definidas con 'ref:' en las tablas
+
+// persona -> experiencia_laboral (1:N)
+// persona -> educacion (1:N)
+// persona -> curso (1:N)
+// persona -> habilidad (1:N)
+// persona -> proyecto (1:N)
+// categoria_habilidad -> habilidad (1:N)
+// proyecto -> proyecto_tecnologia (1:N)
+
+// ================================================
+// Notas Adicionales
+// ================================================
+Note curriculum_features {
+  '''
+  # Características del Sistema
+  
+  ## Funcionalidades Principales:
+  - ✅ Gestión completa de información personal
+  - ✅ Historial de experiencia laboral
+  - ✅ Registro de educación formal
+  - ✅ Catálogo de cursos y certificaciones
+  - ✅ Organización de habilidades por categorías
+  - ✅ Portfolio de proyectos con tecnologías
+  
+  ## Reglas de Negocio:
+  - Si `actualmente_trabaja = TRUE`, entonces `fecha_fin` debe ser NULL
+  - Si `actualmente_estudiando = TRUE`, entonces `fecha_fin` debe ser NULL
+  - Las fechas de fin deben ser >= fechas de inicio
+  - El email debe ser único por persona
+  - No se permite duplicar habilidades para una misma persona
+  - Las tecnologías de un proyecto no pueden duplicarse
+  
+  ## Triggers Implementados:
+  - Actualización automática de `fecha_actualizacion` en tabla persona
+  - Validación automática de fechas en experiencia_laboral
+  - Validación automática de fechas en educacion
+  
+  ## Vistas Disponibles:
+  - vista_curriculum_completo: Resumen estadístico del CV
+  - vista_habilidades_por_categoria: Habilidades agrupadas
+  - vista_proyectos_completos: Proyectos con sus tecnologías
+  
+  ## Funciones Almacenadas:
+  - sp_agregar_experiencia(): Agrega nueva experiencia laboral
+  - sp_obtener_curriculum_json(): Retorna CV completo en formato JSON
+  '''
+}
+
+// ================================================
+// Datos de Ejemplo
+// ================================================
+Note sample_data {
+  '''
+  # Datos de Ejemplo
+  
+  ## Persona:
+  - José Daniel Guzmán Mata
+  - Bachiller en Ciencias
+  - Puerto Ordaz, Estado Bolívar
+  - Email: jdgm464@gmail.com
+  
+  ## Categorías de Habilidades:
+  1. Frontend (HTML, CSS, Bootstrap, JavaScript)
+  2. Backend (Node.js, Java, PHP)
+  3. Bases de Datos (MySQL, SQL, PostgreSQL)
+  4. Herramientas & DevOps (Git, GitHub, VS Code)
+  
+  ## Proyecto Destacado:
+  - Medisoft: Aplicación de escritorio para laboratorio
+  - Tecnologías: Java, Swing, MySQL, NetBeans
+  '''
+}

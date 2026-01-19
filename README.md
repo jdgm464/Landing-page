@@ -148,3 +148,4 @@ José Daniel Guzmán Mata
 ---
 
 **Nota:** Este proyecto está optimizado para desplegarse en Vercel con configuración cero. Solo necesitas conectar tu repositorio y desplegar. 🚀
+  

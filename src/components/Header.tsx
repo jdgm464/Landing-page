@@ -22,7 +22,7 @@ export function Header() {
               </a>
               <a href="tel:04129778551" className="flex items-center gap-2 hover:text-slate-300 transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>0412 9778551 / 0286 9531673</span>
+                <span>0412 9778551</span>
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />

@@ -1,0 +1,2 @@
+id_educacion,id_persona,titulo,institucion,ubicacion,fecha_inicio,fecha_fin,actualmente_estudiando,descripcion,orden
+1,1,Bachiller en Ciencias,Nombre de la Institución,"Puerto Ordaz, Venezuela",2018-01-01,2023-12-31,FALSE,Formación académica en ciencias.,1

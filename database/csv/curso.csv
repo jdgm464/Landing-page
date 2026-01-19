@@ -1,0 +1,6 @@
+id_curso,id_persona,nombre_curso,institucion,plataforma,fecha_obtencion,credencial_url,orden
+1,1,"Programación en C, Programación en C++, Programación en Java Básico",Centro de Formación,Presencial,2020-08-01,,1
+2,1,Fundamentos de la programación,Plataforma de Aprendizaje,Online,2021-12-01,,2
+3,1,Introducción al Diseño de videojuegos,Plataforma de Aprendizaje,Online,2021-12-01,,3
+4,1,Diseño web con HTML5 + CSS,Plataforma de Aprendizaje,Online,2022-04-01,,4
+5,1,Programador Web,Centro de Formación,Presencial,2025-09-01,,5

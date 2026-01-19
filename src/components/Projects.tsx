@@ -56,12 +56,12 @@ export function Projects() {
                       </a>
                     </Button>
                     {project.demo !== '#' && (
-                      <Button size="sm" className="flex-1" asChild>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                          Demo
-                        </a>
-                      </Button>
+                    <Button size="sm" className="flex-1" asChild>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        Demo
+                      </a>
+                    </Button>
                     )}
                   </div>
                 </CardContent>
