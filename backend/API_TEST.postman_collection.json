@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "curriculum-api-2026",
+		"name": "Curriculum API - Tests",
+		"description": "Colección de Postman para probar todos los endpoints de la API del Curriculum Vitae",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "curriculum-api"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"health"
+							]
+						},
+						"description": "Verifica que el servidor esté funcionando correctamente"
+					},
+					"response": []
+				},
+				{
+					"name": "API Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Obtiene información general de la API y lista de endpoints"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "Obtener Persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/persona",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"persona"
+							]
+						},
+						"description": "Obtiene la información personal del CV"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Experiencia Laboral",
+			"item": [
+				{
+					"name": "Obtener Todas las Experiencias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/experiencias",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"experiencias"
+							]
+						},
+						"description": "Obtiene todas las experiencias laborales ordenadas por fecha"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Experiencias por Persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/experiencias/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"experiencias",
+								"1"
+							]
+						},
+						"description": "Obtiene las experiencias laborales de una persona específica (ID: 1)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Educación",
+			"item": [
+				{
+					"name": "Obtener Toda la Educación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/educacion",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"educacion"
+							]
+						},
+						"description": "Obtiene todos los registros de educación ordenados por fecha"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cursos",
+			"item": [
+				{
+					"name": "Obtener Todos los Cursos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cursos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cursos"
+							]
+						},
+						"description": "Obtiene todos los cursos y certificaciones ordenados por fecha"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Habilidades",
+			"item": [
+				{
+					"name": "Obtener Todas las Habilidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/habilidades",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"habilidades"
+							]
+						},
+						"description": "Obtiene todas las habilidades con información de su categoría"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Habilidades Agrupadas por Categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/habilidades/por-categoria",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"habilidades",
+								"por-categoria"
+							]
+						},
+						"description": "Obtiene las habilidades agrupadas por categoría en formato JSON"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyectos",
+			"item": [
+				{
+					"name": "Obtener Todos los Proyectos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/proyectos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"proyectos"
+							]
+						},
+						"description": "Obtiene todos los proyectos con sus tecnologías asociadas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CV Completo",
+			"item": [
+				{
+					"name": "Obtener CV Completo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cv-completo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cv-completo"
+							]
+						},
+						"description": "Obtiene toda la información del CV en una sola petición: persona, experiencias, educación, cursos, habilidades y proyectos"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3001",
+			"type": "string"
+		}
+	]
+}

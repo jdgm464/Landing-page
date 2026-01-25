@@ -1,0 +1,83 @@
+### ================================================
+### API de Curriculum Vitae - Tests con REST Client
+### Extensión recomendada: REST Client (VS Code)
+### Autor: José Daniel Guzmán Mata
+### ================================================
+
+### Variables
+@baseUrl = http://localhost:3001
+@apiUrl = {{baseUrl}}/api
+
+### ================================================
+### HEALTH CHECK & INFO
+### ================================================
+
+### 1. Health Check - Verificar que el servidor esté funcionando
+GET {{apiUrl}}/health
+
+### 2. API Info - Información general y endpoints disponibles
+GET {{baseUrl}}/
+
+### ================================================
+### PERSONA
+### ================================================
+
+### 3. Obtener información personal
+GET {{apiUrl}}/persona
+
+### ================================================
+### EXPERIENCIA LABORAL
+### ================================================
+
+### 4. Obtener todas las experiencias laborales
+GET {{apiUrl}}/experiencias
+
+### 5. Obtener experiencias de una persona específica (ID: 1)
+GET {{apiUrl}}/experiencias/1
+
+### ================================================
+### EDUCACIÓN
+### ================================================
+
+### 6. Obtener toda la educación
+GET {{apiUrl}}/educacion
+
+### ================================================
+### CURSOS Y CERTIFICACIONES
+### ================================================
+
+### 7. Obtener todos los cursos
+GET {{apiUrl}}/cursos
+
+### ================================================
+### HABILIDADES
+### ================================================
+
+### 8. Obtener todas las habilidades con categorías
+GET {{apiUrl}}/habilidades
+
+### 9. Obtener habilidades agrupadas por categoría
+GET {{apiUrl}}/habilidades/por-categoria
+
+### ================================================
+### PROYECTOS
+### ================================================
+
+### 10. Obtener todos los proyectos con tecnologías
+GET {{apiUrl}}/proyectos
+
+### ================================================
+### CV COMPLETO
+### ================================================
+
+### 11. Obtener CV completo (toda la información en una petición)
+GET {{apiUrl}}/cv-completo
+
+### ================================================
+### NOTAS:
+### ================================================
+### - Asegúrate de que el servidor backend esté corriendo (npm run dev)
+### - El servidor debe estar en http://localhost:3001
+### - Si cambiaste el puerto, actualiza la variable @baseUrl
+### - Presiona "Send Request" sobre cada línea GET para ejecutar
+### ================================================
